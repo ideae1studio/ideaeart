@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEAE | Maquetismo y Arte Patrimonial</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            position: relative;
+            animation: fadeIn 1.5s ease-in;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(230, 57, 70, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            letter-spacing: 8px;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            animation: slideDown 1s ease-out;
+        }
+        
+        .hero h1 span { color: #e63946; }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: #a0a0a0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out 0.3s both;
+        }
+        
+        .hero .tagline {
+            font-style: italic;
+            color: #888;
+            max-width: 600px;
+            animation: slideUp 1s ease-out 0.6s both;
+        }
+        
+        /* SECCIONES */
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: #e63946;
+        }
+        
+        /* SOBRE LA CREADORA */
+        .about-content {
+            background-color: #111;
+            border-left: 3px solid #e63946;
+            padding: 2.5rem;
+            border-radius: 4px;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+            text-align: justify;
+        }
+        
+        .about-content .author {
+            margin-top: 1.5rem;
+            color: #e63946;
+            font-style: italic;
+            text-align: right;
+        }
+        
+        /* GALERÍA */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 1;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-item:hover {
+            border-color: #e63946;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        /* CONTACTO */
+        .contact {
+            text-align: center;
+            background-color: #111;
+            padding: 3rem 2rem;
+            border-radius: 4px;
+            border-top: 2px solid #e63946;
+        }
+        
+        .contact p {
+            margin: 0.8rem 0;
+            color: #c0c0c0;
+        }
+        
+        .contact strong { color: #ffffff; }
+        
+        .social-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background-color: #e63946;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #ffffff;
+            color: #e63946;
+            transform: scale(1.05);
+        }
+        
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #555;
+            font-size: 0.85rem;
+            border-top: 1px solid #222;
+        }
+        
+        /* ANIMACIONES */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 600px) {
+            .hero h1 { letter-spacing: 4px; }
+            section { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>IDEA<span>E</span></h1>
+        <p class="subtitle">Maquetismo y Arte Patrimonial</p>
+        <p class="tagline">"Preservando la memoria visual de las edificaciones rurales y patrimoniales del Ecuador"</p>
+    </section>
+
+    <!-- SOBRE LA CREADORA -->
+    <section>
+        <h2 class="section-title">La Creadora</h2>
+        <div class="about-content">
+            <p>Vilma Calle (Cuenca, 1974) es la creadora de "Ideae", taller dedicado al maquetismo arquitectónico y la escultura hiperrealista a escala. Su obra rescata la nostalgia y la riqueza patrimonial de las casas antiguas y haciendas cuencanas, trasladándolas a formatos tridimensionales de entre 16 y 30 cm.</p>
+            <br>
+            <p>A través de un riguroso proceso manual, transforma madera, yeso y elementos naturales recolectados (cortezas, paja, aserrín) aplicando técnicas avanzadas de pátina, envejecimiento y simulación de texturas. Su propuesta representa un puente entre la arquitectura tradicional de la Sierra ecuatoriana y el arte decorativo contemporáneo.</p>
+            <br>
+            <p>Cada obra es única y busca preservar la memoria visual de los paisajes y edificaciones rurales del Ecuador, siendo piezas ideales para colección, galerías de arte y nacimientos de alta gama.</p>
+            <p class="author">— Vilma Lucia Calle Parra</p>
+        </div>
+    </section>
+
+    <!-- GALERÍA (preparada para tus fotos) -->
+    <section>
+        <h2 class="section-title">Galería</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <span>📷 Próximamente</span>
+            </div>
+            <div class="gallery-item">
+                <span>📷 Próximamente</span>
+            </div>
+            <div class="gallery-item">
+                <span>📷 Próximamente</span>
+            </div>
+            <div class="gallery-item">
+                <span>📷 Próximamente</span>
+            </div>
+            <div class="gallery-item">
+                <span>📷 Próximamente</span>
+            </div>
+            <div class="gallery-item">
+                <span>📷 Próximamente</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section>
+        <h2 class="section-title">Contacto</h2>
+        <div class="contact">
+            <p><strong>Ubicación:</strong> Cuenca, Azuay - Ecuador</p>
+            <p><strong>Especialidad:</strong> Maquetismo arquitectónico y escultura hiperrealista a escala</p>
+            <p><strong>Redes sociales:</strong> @IdeaeArtesania</p>
+            <a href="https://instagram.com/IdeaeArtesania" target="_blank" class="social-link">VER INSTAGRAM</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 IDEAE - Maquetismo y Arte Patrimonial · Cuenca, Ecuador
+    </footer>
+
+</body>
+</html>
