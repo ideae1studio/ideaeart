@@ -3,276 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IDEAE - Maquetismo y Arte Patrimonial. Obras de Vilma Calle: maquetas arquitectónicas hiperrealistas de casas cuencanas y haciendas del Ecuador.">
     <title>IDEAE | Maquetismo y Arte Patrimonial</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: #0a0a0a;
-            color: #f0f0f0;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-        
-        /* HERO SECTION */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-            position: relative;
-            animation: fadeIn 1.5s ease-in;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at center, rgba(230, 57, 70, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            letter-spacing: 8px;
-            margin-bottom: 1rem;
-            color: #ffffff;
-            animation: slideDown 1s ease-out;
-        }
-        
-        .hero h1 span { color: #e63946; }
-        
-        .hero .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.4rem);
-            color: #a0a0a0;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            animation: slideUp 1s ease-out 0.3s both;
-        }
-        
-        .hero .tagline {
-            font-style: italic;
-            color: #888;
-            max-width: 600px;
-            animation: slideUp 1s ease-out 0.6s both;
-        }
-        
-        /* SECCIONES */
-        section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-        
-        .section-title {
-            font-size: 2.2rem;
-            color: #ffffff;
-            margin-bottom: 2rem;
-            text-align: center;
-            letter-spacing: 3px;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background-color: #e63946;
-        }
-        
-        /* SOBRE LA CREADORA */
-        .about-content {
-            background-color: #111;
-            border-left: 3px solid #e63946;
-            padding: 2.5rem;
-            border-radius: 4px;
-            font-size: 1.05rem;
-            color: #d0d0d0;
-            text-align: justify;
-        }
-        
-        .about-content .author {
-            margin-top: 1.5rem;
-            color: #e63946;
-            font-style: italic;
-            text-align: right;
-        }
-        
-        /* GALERÍA */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .gallery-item {
-            aspect-ratio: 1;
-            background-color: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 4px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #555;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .gallery-item:hover {
-            border-color: #e63946;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.2);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        
-        /* CONTACTO */
-        .contact {
-            text-align: center;
-            background-color: #111;
-            padding: 3rem 2rem;
-            border-radius: 4px;
-            border-top: 2px solid #e63946;
-        }
-        
-        .contact p {
-            margin: 0.8rem 0;
-            color: #c0c0c0;
-        }
-        
-        .contact strong { color: #ffffff; }
-        
-        .social-link {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.8rem 2rem;
-            background-color: #e63946;
-            color: #ffffff;
-            text-decoration: none;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background-color: #ffffff;
-            color: #e63946;
-            transform: scale(1.05);
-        }
-        
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #555;
-            font-size: 0.85rem;
-            border-top: 1px solid #222;
-        }
-        
-        /* ANIMACIONES */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @media (max-width: 600px) {
-            .hero h1 { letter-spacing: 4px; }
-            section { padding: 3rem 1.5rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>IDEA<span>E</span></h1>
-        <p class="subtitle">Maquetismo y Arte Patrimonial</p>
-        <p class="tagline">"Preservando la memoria visual de las edificaciones rurales y patrimoniales del Ecuador"</p>
-    </section>
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">IDEA<span>E</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#creadora">La Creadora</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- SOBRE LA CREADORA -->
-    <section>
-        <h2 class="section-title">La Creadora</h2>
-        <div class="about-content">
-            <p>Vilma Calle (Cuenca, 1974) es la creadora de "Ideae", taller dedicado al maquetismo arquitectónico y la escultura hiperrealista a escala. Su obra rescata la nostalgia y la riqueza patrimonial de las casas antiguas y haciendas cuencanas, trasladándolas a formatos tridimensionales de entre 16 y 30 cm.</p>
-            <br>
-            <p>A través de un riguroso proceso manual, transforma madera, yeso y elementos naturales recolectados (cortezas, paja, aserrín) aplicando técnicas avanzadas de pátina, envejecimiento y simulación de texturas. Su propuesta representa un puente entre la arquitectura tradicional de la Sierra ecuatoriana y el arte decorativo contemporáneo.</p>
-            <br>
-            <p>Cada obra es única y busca preservar la memoria visual de los paisajes y edificaciones rurales del Ecuador, siendo piezas ideales para colección, galerías de arte y nacimientos de alta gama.</p>
-            <p class="author">— Vilma Lucia Calle Parra</p>
+    <!-- HERO -->
+    <header class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Maquetismo y Arte Patrimonial</p>
+            <h1 class="hero-title">IDEA<span>E</span></h1>
+            <p class="hero-tagline">Preservando la memoria visual de las edificaciones patrimoniales del Ecuador</p>
+            <a href="#galeria" class="btn btn-gold">Ver Obras</a>
+        </div>
+        <div class="hero-scroll">
+            <span></span>
+        </div>
+    </header>
+
+    <!-- LA CREADORA -->
+    <section class="section creadora" id="creadora">
+        <div class="container">
+            <h2 class="section-title">La Creadora</h2>
+            <div class="creadora-grid">
+                <div class="creadora-foto">
+                    <div class="foto-placeholder">
+                        <span>📷 Foto de Vilma</span>
+                        <!-- Reemplazar con: <img src="imagenes/perfil/vilma.jpg" alt="Vilma Calle"> -->
+                    </div>
+                </div>
+                <div class="creadora-texto">
+                    <h3>Vilma Lucia Calle Parra</h3>
+                    <p class="creadora-ubicacion">Cuenca, Azuay - Ecuador</p>
+                    <p>Vilma Calle (Cuenca, 1974) es la creadora de <strong>"Ideae"</strong>, taller dedicado al maquetismo arquitectónico y la escultura hiperrealista a escala. Su obra rescata la nostalgia y la riqueza patrimonial de las casas antiguas y haciendas cuencanas, trasladándolas a formatos tridimensionales de entre 16 y 30 cm.</p>
+                    <p>A través de un riguroso proceso manual, transforma madera, yeso y elementos naturales recolectados (cortezas, paja, aserrín) aplicando técnicas avanzadas de pátina, envejecimiento y simulación de texturas.</p>
+                    <div class="creadora-datos">
+                        <div class="dato">
+                            <span class="dato-label">Stand</span>
+                            <span class="dato-valor">Ideae: Maquetismo Y Arte Patrimonial</span>
+                        </div>
+                        <div class="dato">
+                            <span class="dato-label">Especialidad</span>
+                            <span class="dato-valor">Maquetas arquitectónicas a escala</span>
+                        </div>
+                        <div class="dato">
+                            <span class="dato-label">Ubicación</span>
+                            <span class="dato-valor">Cuenca, Azuay, Ecuador</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- GALERÍA (preparada para tus fotos) -->
-    <section>
-        <h2 class="section-title">Galería</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <span>📷 Próximamente</span>
+    <!-- GALERÍA -->
+    <section class="section galeria" id="galeria">
+        <div class="container">
+            <h2 class="section-title">Galería de Obras</h2>
+            <p class="section-subtitle">Cada pieza es única, elaborada a mano con materiales naturales y técnicas de envejecimiento artesanal.</p>
+            
+            <div class="galeria-grid">
+                <!-- FOTO 1 -->
+                <div class="galeria-item" data-titulo="Casa Patrimonial Cuencana" data-desc="Maqueta a escala 1:24 elaborada en madera y yeso">
+                    <div class="foto-placeholder">
+                        <span>📷 Obra 1</span>
+                        <!-- Reemplazar con: <img src="imagenes/galeria/obra1.jpg" alt="Casa Patrimonial Cuencana"> -->
+                    </div>
+                    <div class="galeria-info">
+                        <h4>Casa Patrimonial Cuencana</h4>
+                        <p>Madera, yeso y elementos naturales</p>
+                    </div>
+                </div>
+
+                <!-- FOTO 2 -->
+                <div class="galeria-item" data-titulo="Hacienda Tradicional" data-desc="Réplica de hacienda serrana con detalles de paja y cortezas">
+                    <div class="foto-placeholder">
+                        <span>📷 Obra 2</span>
+                        <!-- Reemplazar con: <img src="imagenes/galeria/obra2.jpg" alt="Hacienda Tradicional"> -->
+                    </div>
+                    <div class="galeria-info">
+                        <h4>Hacienda Tradicional</h4>
+                        <p>Paja, aserrín y corteza natural</p>
+                    </div>
+                </div>
+
+                <!-- FOTO 3 -->
+                <div class="galeria-item" data-titulo="Fachada Colonial" data-desc="Detalle de fachada con técnica de pátina envejecida">
+                    <div class="foto-placeholder">
+                        <span>📷 Obra 3</span>
+                        <!-- Reemplazar con: <img src="imagenes/galeria/obra3.jpg" alt="Fachada Colonial"> -->
+                    </div>
+                    <div class="galeria-info">
+                        <h4>Fachada Colonial</h4>
+                        <p>Técnica de pátina y envejecimiento</p>
+                    </div>
+                </div>
+
+                <!-- FOTO 4 -->
+                <div class="galeria-item" data-titulo="Nacimiento de Alta Gama" data-desc="Pieza de colección para nacimientos artesanales">
+                    <div class="foto-placeholder">
+                        <span>📷 Obra 4</span>
+                        <!-- Reemplazar con: <img src="imagenes/galeria/obra4.jpg" alt="Nacimiento Artesanal"> -->
+                    </div>
+                    <div class="galeria-info">
+                        <h4>Nacimiento de Alta Gama</h4>
+                        <p>Pieza de colección exclusiva</p>
+                    </div>
+                </div>
+
+                <!-- FOTO 5 -->
+                <div class="galeria-item" data-titulo="Casa Rural" data-desc="Representación de arquitectura rural ecuatoriana">
+                    <div class="foto-placeholder">
+                        <span>📷 Obra 5</span>
+                        <!-- Reemplazar con: <img src="imagenes/galeria/obra5.jpg" alt="Casa Rural"> -->
+                    </div>
+                    <div class="galeria-info">
+                        <h4>Casa Rural</h4>
+                        <p>Arquitectura vernácula del Ecuador</p>
+                    </div>
+                </div>
+
+                <!-- FOTO 6 -->
+                <div class="galeria-item" data-titulo="Detalle Arquitectónico" data-desc="Texturas y acabados hiperrealistas">
+                    <div class="foto-placeholder">
+                        <span>📷 Obra 6</span>
+                        <!-- Reemplazar con: <img src="imagenes/galeria/obra6.jpg" alt="Detalle Arquitectónico"> -->
+                    </div>
+                    <div class="galeria-info">
+                        <h4>Detalle Arquitectónico</h4>
+                        <p>Texturas hiperrealistas a escala</p>
+                    </div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <span>📷 Próximamente</span>
-            </div>
-            <div class="gallery-item">
-                <span>📷 Próximamente</span>
-            </div>
-            <div class="gallery-item">
-                <span>📷 Próximamente</span>
-            </div>
-            <div class="gallery-item">
-                <span>📷 Próximamente</span>
-            </div>
-            <div class="gallery-item">
-                <span>📷 Próximamente</span>
+        </div>
+    </section>
+
+    <!-- PROYECTOS FUTUROS -->
+    <section class="section proyectos" id="proyectos">
+        <div class="container">
+            <h2 class="section-title">Proyectos</h2>
+            <p class="section-subtitle">Nuevas obras y series en desarrollo. Espacio para futuras colecciones.</p>
+            
+            <div class="proyectos-grid">
+                <div class="proyecto-card">
+                    <div class="proyecto-icono">🏛️</div>
+                    <h3>Serie Patrimonial Cuenca</h3>
+                    <p>Colección de maquetas de casas emblemáticas del centro histórico de Cuenca.</p>
+                    <span class="proyecto-estado">En desarrollo</span>
+                </div>
+                <div class="proyecto-card">
+                    <div class="proyecto-icono">🌾</div>
+                    <h3>Haciendas del Ecuador</h3>
+                    <p>Réplicas de haciendas tradicionales de la Sierra ecuatoriana.</p>
+                    <span class="proyecto-estado">Próximamente</span>
+                </div>
+                <div class="proyecto-card">
+                    <div class="proyecto-icono">✨</div>
+                    <h3>Nacimientos de Colección</h3>
+                    <p>Piezas de alta gama para colecciones privadas y galerías.</p>
+                    <span class="proyecto-estado">Disponible por encargo</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CONTACTO -->
-    <section>
-        <h2 class="section-title">Contacto</h2>
-        <div class="contact">
-            <p><strong>Ubicación:</strong> Cuenca, Azuay - Ecuador</p>
-            <p><strong>Especialidad:</strong> Maquetismo arquitectónico y escultura hiperrealista a escala</p>
-            <p><strong>Redes sociales:</strong> @IdeaeArtesania</p>
-            <a href="https://instagram.com/IdeaeArtesania" target="_blank" class="social-link">VER INSTAGRAM</a>
+    <section class="section contacto" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">¿Interesado en una pieza o colaboración? Escríbenos.</p>
+            
+            <div class="contacto-grid">
+                <div class="contacto-card">
+                    <div class="contacto-icono">📱</div>
+                    <h3>WhatsApp</h3>
+                    <p>Escríbenos directamente</p>
+                    <a href="https://wa.me/593999999999?text=Hola,%20me%20interesa%20el%20trabajo%20de%20IDEAE" target="_blank" class="btn btn-rosa">
+                        Enviar Mensaje
+                    </a>
+                    <!-- ⚠️ CAMBIAR 593999999999 por el número real de Vilma -->
+                </div>
+                
+                <div class="contacto-card">
+                    <div class="contacto-icono">📸</div>
+                    <h3>Instagram</h3>
+                    <p>@ideae_store</p>
+                    <a href="https://instagram.com/ideae_store" target="_blank" class="btn btn-rosa">
+                        Ver Perfil
+                    </a>
+                </div>
+                
+                <div class="contacto-card">
+                    <div class="contacto-icono">👍</div>
+                    <h3>Facebook</h3>
+                    <p>@ideae_store</p>
+                    <a href="https://facebook.com/ideae_store" target="_blank" class="btn btn-rosa">
+                        Ver Página
+                    </a>
+                </div>
+            </div>
+
+            <div class="contacto-info">
+                <p><strong>Ubicación:</strong> Cuenca, Azuay - Ecuador</p>
+                <p><strong>Especialidad:</strong> Maquetismo arquitectónico y escultura hiperrealista a escala</p>
+                <p><strong>Encargos:</strong> Disponibles por pedido personalizado</p>
+            </div>
         </div>
     </section>
 
-    <footer>
-        &copy; 2026 IDEAE - Maquetismo y Arte Patrimonial · Cuenca, Ecuador
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>IDEA<span>E</span></h3>
+                    <p>Maquetismo y Arte Patrimonial</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://instagram.com/ideae_store" target="_blank">Instagram</a>
+                    <a href="https://facebook.com/ideae_store" target="_blank">Facebook</a>
+                    <a href="https://wa.me/593999999999" target="_blank">WhatsApp</a>
+                </div>
+                <div class="footer-copy">
+                    <p>&copy; 2026 IDEAE - Vilma Lucia Calle Parra</p>
+                    <p>Cuenca, Azuay - Ecuador</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/593999999999?text=Hola,%20me%20interesa%20el%20trabajo%20de%20IDEAE" 
+       target="_blank" 
+       class="whatsapp-float" 
+       aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 32 32" width="32" height="32">
+            <path fill="currentColor" d="M16 0c-8.837 0-16 7.163-16 16 0 2.819 0.737 5.605 2.137 8.048l-2.137 7.952 7.935-2.127c2.42 1.37 5.173 2.127 8.065 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.508-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.109-1.847-4.515-1.847-6.991 0-7.435 6.065-13.5 13.5-13.5s13.5 6.065 13.5 13.5-6.065 13.5-13.5 13.5zM21.558 18.201c-0.212-0.106-1.246-0.612-1.439-0.718s-0.335-0.159-0.476 0.106c-0.141 0.265-0.545 0.718-0.668 0.862s-0.246 0.159-0.457 0.053c-0.212-0.106-0.893-0.329-1.7-1.050-0.628-0.561-1.052-1.252-1.175-1.464s-0.013-0.326 0.093-0.432c0.095-0.095 0.212-0.247 0.318-0.371s0.141-0.212 0.212-0.353c0.071-0.141 0.035-0.265-0.018-0.371s-0.476-1.127-0.652-1.545c-0.17-0.406-0.344-0.351-0.476-0.357-0.123-0.006-0.264-0.006-0.404-0.006s-0.368 0.053-0.561 0.265c-0.194 0.212-0.736 0.718-0.736 1.751s0.754 2.032 0.859 2.173c0.106 0.141 1.48 2.396 3.597 3.354 0.502 0.227 0.893 0.363 1.198 0.465 0.502 0.159 0.959 0.136 1.32 0.083 0.402-0.059 1.246-0.509 1.422-1.001s0.176-0.914 0.123-1.001c-0.053-0.088-0.194-0.141-0.404-0.247z"/>
+        </svg>
+    </a>
+
+    <!-- LIGHTBOX (para ver fotos en grande) -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-caption">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
